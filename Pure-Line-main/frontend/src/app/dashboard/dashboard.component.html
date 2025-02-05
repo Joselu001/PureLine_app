@@ -1,0 +1,82 @@
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"> <img src="PL2.png" alt="Foto-logo"> </div>
+      <div class="navbar-content">
+        <!-- Barra de búsqueda -->
+        <form class="search-form" action="#" method="GET">
+          <input type="text" name="search" placeholder="Buscar..." class="search-input">
+          <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <!-- Enlaces de navegación con íconos -->
+        <ul class="nav-links">
+          <li><a [routerLink]="['/']"><i class="fas fa-home"></i></a></li>
+          <li><a [routerLink]="['/collection']"><i class="fas fa-tshirt"></i></a></li>
+          <li><a [routerLink]="['/about']"><i class="fas fa-info-circle"></i></a></li>
+          <li><a [routerLink]="['/contact']"><i class="fas fa-envelope"></i></a></li>
+          <li><a [routerLink]="['/login']"><i class="fas fa-user"></i></a></li>
+        </ul>        
+      </div>
+      <!-- Botón hamburguesa (para móviles) con ícono -->
+      <div class="hamburger-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about" class="company-title">
+    <p>Estilo puro</p>
+  </section>
+
+  <section class="photo-boxes">
+    <div class="box small-box">
+      <img src="https://norbest.pt/wp-content/uploads/2022/08/zolf-3384-copy.jpg" alt="Foto 1">
+    </div>
+    <div class="box large-box">
+      <img src="https://images.vexels.com/media/users/3/281993/raw/65bfabfe57b8f1c43724f07358b7dca6-camiseta-de-cerca-en-maqueta-de-percha.jpg" alt="Foto 2">
+    </div>
+    <div class="box small-box">
+      <img src="https://m.media-amazon.com/images/I/71qqPTyiatS._AC_UY1000_.jpg" alt="Foto 3">
+    </div>
+  </section>
+
+  <section id="collection" class="collection">
+    <h2>Nuestra Colección</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://images.tcdn.com.br/img/img_prod/947450/camiseta_basic_strong_preto_malha_pesada_1053_1_03680dfa0aa04d53f062a170f8527091.jpg" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>$49.99</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.tcdn.com.br/img/img_prod/947450/camiseta_basic_strong_preto_malha_pesada_1053_1_03680dfa0aa04d53f062a170f8527091.jpg" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p>$39.99</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.tcdn.com.br/img/img_prod/947450/camiseta_basic_strong_preto_malha_pesada_1053_1_03680dfa0aa04d53f062a170f8527091.jpg" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p>$59.99</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.tcdn.com.br/img/img_prod/947450/camiseta_basic_strong_preto_malha_pesada_1053_1_03680dfa0aa04d53f062a170f8527091.jpg" alt="Producto 4">
+        <h3>Producto 4</h3>
+        <p>$59.99</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Explora tu estilo único</h1>
+      <p>Descubre las últimas tendencias en moda para cada ocasión.</p>
+      <a [routerLink]="'/collection'" class="cta-button">Ver Colección</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FashionShop. Todos los derechos reservados.</p>
+  </footer>
+</body>

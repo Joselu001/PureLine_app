@@ -1,0 +1,33 @@
+<body>
+  <div class="login-page">
+  <!-- Contenedor del formulario de login (50% izquierda) -->
+  <div class="login-container">
+    <div class="logo-container">
+      <img src="PL.png" alt="Logo" class="logo">
+    </div>
+    <h2 class="login-title">Inicio de sesión</h2>
+    <form class="login-form" (submit)="login(username.value, password.value)">
+      <div class="input-group">
+        <input type="text" id="username" #username placeholder="Usuario" required />
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" #password placeholder="Contraseña" required />
+      </div>
+      <button type="submit" class="btn-login">Iniciar sesión</button>
+    </form>
+
+    <p class="signup-link">¿No tienes cuenta? <a [routerLink]="'/register'" class="register-link">Regístrate aquí</a></p>
+
+    <!-- Mensajes de éxito o error -->
+    <div class="message-container">
+      <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Contenedor de la imagen -->
+  <div class="image-container">
+    <img src="login-image.png" alt="Imagen de ropa" class="image">
+  </div>
+  </div>
+</body>

@@ -1,0 +1,66 @@
+src/main/java/com/cgi/:
+total 4
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 09:36 ../
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 09:36 ./
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 12:16 loginapp/
+
+src/test/java/com/cgi/:
+total 0
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 09:36 ../
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 09:36 ./
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 14 09:36 loginapp/
+
+target/classes/com/cgi/loginapp/:
+total 8
+drwxr-xr-x 1 joseluis.amoresperez 1049089    0 Jan 15 10:49 ../
+-rw-r--r-- 1 joseluis.amoresperez 1049089 1027 Jan 15 10:49 LoginAppApplication.class
+drwxr-xr-x 1 joseluis.amoresperez 1049089    0 Jan 15 10:49 ./
+-rw-r--r-- 1 joseluis.amoresperez 1049089  919 Jan 15 10:49 ServletInitializer.class
+
+target/classes/com/example/login/:
+total 0
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ../
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 controller/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 service/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 model/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 repository/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ./
+
+target/maven-status/maven-compiler-plugin/compile/default-compile/:
+total 5
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ../
+-rw-r--r-- 1 joseluis.amoresperez 1049089 872 Jan 15 10:49 inputFiles.lst
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ./
+-rw-r--r-- 1 joseluis.amoresperez 1049089 264 Jan 15 10:49 createdFiles.lst
+
+target/test-classes/com/cgi/loginapp/:
+total 4
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ../
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ./
+-rw-r--r-- 1 joseluis.amoresperez 1049089 543 Jan 15 10:49 LoginAppApplicationTests.class
+
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/:
+total 2
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ../
+-rw-r--r-- 1 joseluis.amoresperez 1049089 150 Jan 15 10:49 inputFiles.lst
+drwxr-xr-x 1 joseluis.amoresperez 1049089   0 Jan 15 10:49 ./
+-rw-r--r-- 1 joseluis.amoresperez 1049089  48 Jan 15 10:49 createdFiles.lst
+
+target/loginapp-0.0.1-SNAPSHOT/WEB-INF/classes/com/:
+total 0
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 cgi/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ./
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 example/
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ../
+
+target/loginapp-0.0.1-SNAPSHOT/WEB-INF/classes/static/:
+total 0
+-rw-r--r-- 1 joseluis.amoresperez 1049089 0 Jan 14 09:17 sample.txt.txt
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ./
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ../
+
+target/loginapp-0.0.1-SNAPSHOT/WEB-INF/classes/templates/:
+total 0
+-rw-r--r-- 1 joseluis.amoresperez 1049089 0 Jan 14 09:17 sample.txt.txt
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ../
+drwxr-xr-x 1 joseluis.amoresperez 1049089 0 Jan 15 10:49 ./

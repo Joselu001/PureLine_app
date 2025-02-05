@@ -1,0 +1,224 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Contenedor principal dividido en 2 */
+  .login-page {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Toda la altura de la pantalla */
+  }
+  
+  /* Mitad izquierda: Contenedor del formulario */
+  .login-container {
+    width: 50%; /* Mitad izquierda */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    padding: 40px;
+  }
+  
+  /* Contenedor del logo */
+  .logo-container {
+    width: 100%;
+    text-align: center; /* Centra el logo horizontalmente */
+
+  }
+  
+  .logo {
+    max-width: 250px;
+    height: auto;
+    margin-top: -50px;
+  }
+  
+  /* Título del formulario */
+  .login-title {
+    font-size: 24px;
+    font-weight: lighter;
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  /* Formulario */
+  .login-form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre inputs */
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ddd; /* Línea inferior gris */
+    background-color: transparent;
+    color: #333;
+    padding-right: 40px; /* Espacio para el botón de visibilidad */
+
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    border-bottom: 3px solid #333;
+    transition: border-color 0.5s ease;
+  }
+
+  /* Botón de alternar visibilidad */
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Espaciado desde el borde derecho */
+  top: 50%; /* Centra verticalmente el botón */
+  transform: translateY(-50%);
+}
+
+/* Estilo para el ícono del botón */
+.icon-eye,
+.icon-eye-closed {
+  font-size: 18px; /* Ajusta el tamaño del ícono */
+  color: #555; /* Color inicial */
+  transition: color 0.3s ease; /* Transición para cambio de color */
+}
+
+.toggle-password:hover .icon-eye,
+.toggle-password:hover .icon-eye-closed {
+  color: #333; /* Cambia a un color más oscuro al pasar el cursor */
+}
+  
+  /* Botón de iniciar sesión */
+  button.btn-login {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 1px solid #000000;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+  }
+  
+  button.btn-login:hover {
+    background-color: #7a7a7a;
+    color:#fff;
+  }
+  
+  /* Enlace para registrarse */
+  .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+  }
+  
+  .signup-link a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mensajes de éxito o error */
+  .message-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .success-message {
+    color: #28a745; 
+  }
+  
+  .error-message {
+    color: #dc3545;
+  }
+  
+  /* Mitad derecha: Contenedor de la imagen */
+  .image-container {
+    width: 50%; /* Mitad derecha */
+    height: 100%; /* Ocupa toda la altura */
+    overflow: hidden; /* Oculta desbordamientos */
+  }
+  
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Imagen ajustada a todo el espacio */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 1024px) {
+    /* Ajustes en pantallas medianas */
+    .login-container {
+      padding: 20px;
+    }
+  
+    .logo {
+      max-width: 150px;
+    }
+  
+    .login-title {
+      font-size: 20px;
+    }
+  
+    .btn-login {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .image-container {
+      display: none; /* Oculta la imagen completamente */
+    }
+  
+    .login-container {
+      width: 100%; /* El formulario ocupa todo el ancho */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Ajustes en pantallas pequeñas */
+    .login-container {
+      padding: 10px;
+      align-items: center;
+    }
+  
+    .logo {
+      max-width: 100px;
+    }
+  
+    .login-title {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    .login-form {
+      width: 90%;
+    }
+  
+    .image-container {
+      display: none; /* Oculta la imagen en pantallas muy pequeñas */
+    }
+  
+    .signup-link {
+      font-size: 12px;
+    }
+  }
+  

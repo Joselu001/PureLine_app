@@ -1,0 +1,62 @@
+2025-01-31T10:02:40.602Z  INFO 389793 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Starting LoginAppApplicationTests using Java 17.0.13 with PID 389793 (started by ec2-user in /home/ec2-user/online-store/users-microservices)
+2025-01-31T10:02:40.611Z DEBUG 389793 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Running with Spring Boot v3.4.1, Spring v6.2.1
+2025-01-31T10:02:40.614Z  INFO 389793 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-01-31T10:02:41.876Z  INFO 389793 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31T10:02:41.980Z  INFO 389793 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 1 JPA repository interface.
+2025-01-31T10:02:42.811Z  INFO 389793 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31T10:02:42.944Z  INFO 389793 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-31T10:02:43.005Z  INFO 389793 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-31T10:02:43.471Z  INFO 389793 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-31T10:02:43.522Z  INFO 389793 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-31T10:02:43.852Z  INFO 389793 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4403bff8
+2025-01-31T10:02:43.854Z  INFO 389793 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-31T10:02:43.947Z  WARN 389793 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-31T10:02:43.948Z  WARN 389793 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31T10:02:43.996Z  INFO 389793 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-31T10:02:45.629Z  INFO 389793 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-31T10:02:45.719Z  INFO 389793 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31T10:02:46.579Z  WARN 389793 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31T10:02:46.636Z  INFO 389793 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-31T10:02:46.699Z  INFO 389793 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-01-31T10:02:47.453Z  INFO 389793 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Started LoginAppApplicationTests in 7.563 seconds (process running for 9.656)
+2025-01-31T10:02:48.497Z  INFO 389793 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31T10:02:48.505Z  INFO 389793 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-31T10:02:48.531Z  INFO 389793 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-31T10:14:18.454Z  INFO 390337 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Starting LoginAppApplicationTests using Java 17.0.13 with PID 390337 (started by ec2-user in /home/ec2-user/online-store/users-microservices)
+2025-01-31T10:14:18.459Z DEBUG 390337 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Running with Spring Boot v3.4.1, Spring v6.2.1
+2025-01-31T10:14:18.460Z  INFO 390337 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-01-31T10:14:19.742Z  INFO 390337 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-31T10:14:19.863Z  INFO 390337 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 1 JPA repository interface.
+2025-01-31T10:14:20.764Z  INFO 390337 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-31T10:14:20.904Z  INFO 390337 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-31T10:14:20.963Z  INFO 390337 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-31T10:14:21.447Z  INFO 390337 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-31T10:14:21.495Z  INFO 390337 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-31T10:14:21.853Z  INFO 390337 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f5e6833
+2025-01-31T10:14:21.854Z  INFO 390337 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-31T10:14:21.935Z  WARN 390337 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-31T10:14:21.936Z  WARN 390337 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-01-31T10:14:21.969Z  INFO 390337 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-31T10:14:23.641Z  INFO 390337 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-31T10:14:23.748Z  INFO 390337 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31T10:14:24.577Z  WARN 390337 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-31T10:14:24.619Z  INFO 390337 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-31T10:14:24.697Z  INFO 390337 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-01-31T10:14:25.434Z  INFO 390337 --- [main] c.cgi.loginapp.LoginAppApplicationTests  : Started LoginAppApplicationTests in 7.654 seconds (process running for 9.56)
+2025-01-31T10:14:26.446Z  INFO 390337 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-31T10:14:26.448Z  INFO 390337 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-31T10:14:26.467Z  INFO 390337 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

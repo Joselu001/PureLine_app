@@ -1,0 +1,325 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+      margin: 0;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #333;
+      padding-top: 50px;
+    }
+    
+    .logo img {
+      width: 100px; // Ajusta el ancho según sea necesario
+      height: auto; // Mantén la proporción de la imagen
+    }
+
+    header {
+      background-color: rgb(73, 73, 73);
+      padding: 1rem;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;  /* Para asegurarte de que esté por encima de otros elementos */
+      border: #222 solid 2px;
+    }
+    
+    header.scrolled {
+       /* fondo más visible */
+      padding: 0.5rem;
+    }
+    
+  
+    .search-form {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem; /* Espaciado entre la búsqueda y el logo */
+  }
+  
+  .search-input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      width: 200px;
+  }
+  
+  .search-button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: #ff6347;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+  }
+  
+  .search-button:hover {
+      background-color: #ff6347;
+  }
+  
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* Espacio entre el logo y los elementos de contenido */
+      align-items: center;
+      background-color: rgb(73, 73, 73); /* Color de fondo */
+      padding: 0rem 1rem;
+    }
+  
+    .navbar-content {
+      display: flex;
+      align-items: center; /* Alinear elementos horizontalmente */
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem; /* Tamaño de los íconos */
+      transition: color 0.3s ease;
+    }
+  
+    .nav-links a:hover {
+      color: #ff6347; /* Cambiar color al pasar el mouse */
+  }
+  
+  /* Espaciado entre los íconos */
+  .nav-links li {
+      margin: 0 0.5rem;
+  }
+  
+  /* Icono de la hamburguesa (móviles) */
+  .hamburger-menu i {
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+  }
+    
+    .hamburger-menu {
+      display: none; /* Por defecto no visible */
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1000; /* Asegura que el botón hamburguesa se muestre encima de otros elementos */
+    }
+    
+    /* Estilo para la sección de hero */
+    .hero {
+      background: url('https://png.pngtree.com/thumb_back/fw800/background/20231013/pngtree-vibrant-fabric-close-up-of-colorful-cotton-texture-for-fashion-textile-image_13629233.png') no-repeat center center/cover;
+      background-color: #f4f4f4;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: white;
+      text-shadow: #222 3px 3px 3px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 0;
+      color: white;
+      margin-bottom: 40px;
+      text-shadow: #222 2px 2px 2px;
+    }
+    .cta-button {
+      padding: 0.8rem 1.5rem;
+      background-color: #ff6347;
+      color: white;
+      border: black solid 1px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      text-shadow: #222 1px 1px 1px;
+    }
+    
+
+    .collection {
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .product-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      border-radius: 5px;
+      text-align: center;
+      width: 250px;
+      height: auto;
+      background-color: #f9f9f9;
+    }
+    
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    
+    .product-card h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+    
+    .product-card p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #222;
+      color: #fff;
+    }
+    
+    .photo-boxes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .box {
+      border: transparent;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+    }
+    
+    .small-box {
+      width: 400px;
+      height: 400px;
+    }
+    
+    .large-box {
+      width: 610px;
+      height: 400px;
+    }
+    
+    .box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    
+    .company-title {
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+    }
+    
+    .company-title p {
+      font-family: harrington;
+      font-size: 30px;
+      margin: 0;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    /* Responsive Design */
+    
+    /* Para pantallas pequeñas como móviles */
+    @media (max-width: 768px) {
+      .search-form {
+        margin: 1rem 0;
+        width: 100%;
+    }
+  
+    .search-input {
+        width: calc(100% - 50px); /* Ajustar al ancho completo menos el botón */
+    }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      /* Ocultar los enlaces por defecto */
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    
+      /* Mostrar los enlaces cuando la navbar tenga la clase .active */
+      .navbar.active .nav-links {
+        display: flex;
+      }
+    
+      /* Mostrar el botón hamburguesa solo en móviles */
+      .hamburger-menu {
+        display: block;
+      }
+    
+      .hero {
+        height: auto;
+        padding: 2rem;
+        text-align: center;
+      }
+    
+      .photo-boxes {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    
+      .small-box,
+      .large-box {
+        max-width: 90%;
+        height: auto;
+      }
+    
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .product-card {
+        width: 90%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+    
+      .cta-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+    
+      .company-title h1 {
+        font-size: 2rem;
+      }
+    
+      .product-card img {
+        height: auto;
+      }
+    }
+    

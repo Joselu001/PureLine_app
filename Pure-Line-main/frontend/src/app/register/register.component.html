@@ -1,0 +1,105 @@
+<div class="register-page">
+  <div class="register-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="PL.png" alt="Logo" class="logo" />
+    </div>
+
+    <!-- Formulario de registro -->
+    <form class="register-form" (ngSubmit)="onSubmit()">
+      <!-- Usuario -->
+      <div class="input-group">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Usuario"
+          [(ngModel)]="username"
+          required
+        />
+      </div>
+
+      <!-- Correo electrónico -->
+      <div class="input-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Correo electrónico"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+
+      <!-- Contraseña -->
+      <div class="input-group">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+          (input)="onPasswordInput()"
+          required
+        />
+        <!-- Indicador de seguridad de la contraseña -->
+        <div class="password-strength">
+          <div 
+            class="strength-bar" 
+            [style.width.%]="strengthBarWidth" 
+            [ngClass]="{
+              'weak': passwordStrength <= 25, 
+              'medium': passwordStrength > 25 && passwordStrength <= 50, 
+              'strong': passwordStrength > 50
+            }">
+          </div>
+        </div>
+        <p class="password-strength-text">{{ strengthMessage }}</p>
+
+        <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+          <i class="fa" [ngClass]="{ 'fa-eye': !showPassword, 'fa-eye-slash': showPassword }"></i>
+        </button>
+      </div>
+
+      <!-- Confirmar contraseña -->
+      <div class="input-group">
+        <input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirmar contraseña"
+          [(ngModel)]="confirmPassword"
+          required
+        />
+        <button
+          type="button"
+          class="toggle-password"
+          (click)="toggleConfirmPasswordVisibility()"
+        >
+          <i
+            class="fa"
+            [ngClass]="{ 'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword }"
+          ></i>
+        </button>
+      </div>
+
+      <!-- Botón de registro -->
+      <button type="submit" class="btn-register" [disabled]="passwordStrength < 60">Crear Cuenta</button>
+    </form>
+
+          <!-- Mensaje de politica de contraseña -->
+          <p *ngIf="passwordStrength < 60 && password.length > 0" class="error-message">
+            La contraseña debe ser más fuerte. Usa mayúsculas, números y caracteres especiales.
+          </p>
+
+    <!-- Mensajes dinámicos -->
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+
+    <!-- Enlace a iniciar sesión -->
+    <p class="login-link">
+      ¿Ya tienes una cuenta?
+      <a [routerLink]="['/']" class="login-link-text">Inicia sesión aquí</a>
+    </p>
+  </div>
+</div>

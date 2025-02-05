@@ -1,0 +1,282 @@
+/* Estilo general de la página de registro */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Contenedor del formulario de registro */
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Logo */
+.logo-container {
+  margin-bottom: 20px;
+
+  .logo {
+    width: 250px;
+    height: auto;
+  }
+}
+
+/* Estilo del formulario */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Grupo de inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid #333;
+      transition: border-color 0.5s ease;
+    }
+  }
+
+  /* Botón para mostrar/ocultar contraseñas */
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #333;
+    display: none;  /* Se oculta por defecto */
+
+    i {
+      font-size: 1.2rem;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    &:hover i {
+      color: #000;
+    }
+  }
+
+  /* Mostrar el ícono si hay texto en el input */
+  input:not(:placeholder-shown) + .toggle-password {
+    display: block;
+  }
+}
+
+/* Mensajes de seguridad de la contraseña */
+.password-strength {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
+
+.weak {
+  background-color: red;
+}
+
+.medium {
+  background-color: orange;
+}
+
+.strong {
+  background-color: green;
+}
+
+.password-strength-text {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #555;
+  text-align: center;
+}
+
+/* Botón de registro */
+.btn-register {
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #3f3f3f;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+/* Enlace de inicio de sesión */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+
+  .login-link-text {
+    color: #000;
+    text-decoration: wavy;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.success-message {
+  color: green;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .logo-container {
+    margin-bottom: 20px;
+  }
+
+  .input-group input {
+    padding-right: 30px; /* Reducir el padding cuando sea móvil */
+  }
+
+  .btn-register {
+    font-size: 1.2rem;
+  }
+}
+
+/* Nuevas clases para la barra de fuerza */
+.password-strength {
+  margin-top: 10px;
+}
+
+.password-strength-text {
+  font-size: 12px;
+  color: #999;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Estilo de visibilidad de contraseñas */
+.toggle-password {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Barra de fuerza con nuevas configuraciones */
+.password-strength {
+  height: 5px;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  border-radius: 5px;
+  visibility: hidden; /* Ocultar la barra por defecto */
+  transition: visibility 0.3s ease-in-out; 
+}
+
+/* Mostrar barra de seguridad cuando haya texto en el campo de contraseña */
+.input-group input:not(:placeholder-shown) ~ .password-strength {
+  visibility: visible; /* La barra será visible cuando empieces a escribir */
+}
+
+.strength-bar {
+  height: 5px;
+  border-radius: 5px;
+}
+
+.weak {
+  background-color: red;
+}
+
+.medium {
+  background-color: orange;
+}
+
+.strong {
+  background-color: green;
+}
+
+/* Estilo para el mensaje de la fuerza de la contraseña */
+.password-strength-text {
+  font-size: 12px;
+  color: #555;
+  margin-top: 5px;
+  visibility: hidden; /* Ocultar el mensaje por defecto */
+  opacity: 0; /* Inicialmente no visible */
+  transition: visibility 0s, opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Mostrar el mensaje cuando haya texto en el campo de la contraseña */
+.input-group input:focus:not(:placeholder-shown) ~ .password-strength-text {
+  visibility: visible;
+  opacity: 1; /* Hacer visible el mensaje */
+}
