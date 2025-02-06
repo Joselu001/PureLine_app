@@ -12,11 +12,10 @@ pool:
   vmImage: 'ubuntu-latest'  # Usamos Ubuntu como la imagen base para el agente de pipeline
 
 steps:
-  # Paso 1: Configurar Java (para el backend)
-  - task: UseJavaTool@0
+  # Paso 1: Instalar Java (para el backend)
+  - task: JavaToolInstaller@0  # Tarea para instalar Java
     inputs:
       versionSpec: '1.8'  # Especifica la versión de Java que deseas usar (ajusta si usas otra versión)
-      addToPath: true
 
   # Paso 2: Instalar dependencias de Angular (para el frontend)
   - task: NodeTool@0
