@@ -9,7 +9,7 @@ pr:
       - main  # Ejecutar cuando se crea o actualiza un PR hacia la rama 'main'
 
 pool:
-  name: 'Default'  # Usamos Ubuntu como la imagen base para el agente de pipeline
+  name: 'amazon-pool-dev'  # Usamos Ubuntu como la imagen base para el agente de pipeline
 
 steps:
   # Paso 1: Instalar Java (para el backend)
