@@ -1,0 +1,62 @@
+trigger:
+  branches:
+    exclude:
+      - '*'  # No ejecutar automáticamente en cada push
+
+pr:
+  branches:
+    include:
+      - main  # Ejecutar cuando se crea o actualiza un PR hacia la rama 'main'
+
+pool:
+  vmImage: 'ubuntu-latest'  # Usamos Ubuntu como la imagen base para el agente de pipeline
+
+steps:
+  # Paso 1: Configurar Java (para el backend)
+  - task: UseJavaTool@0
+    inputs:
+      versionSpec: '1.8'  # Especifica la versión de Java que deseas usar (ajusta si usas otra versión)
+      addToPath: true
+
+  # Paso 2: Instalar dependencias de Angular (para el frontend)
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'  # Especifica la versión de Node.js que quieres usar
+      addToPath: true
+
+  # Paso 3: Instalar dependencias del frontend (Angular)
+  - script: |
+      cd frontend  # Si tu proyecto de Angular está en la carpeta 'frontend', ajusta esto si es necesario
+      npm install  # Instala las dependencias del frontend (Angular)
+    displayName: 'Instalar dependencias de Angular'
+
+  # Paso 4: Instalar dependencias del backend (Java)
+  - script: |
+      cd backend  # Si tu proyecto de Java está en la carpeta 'backend', ajusta esto si es necesario
+      ./mvnw install  # Usamos Maven para instalar las dependencias del backend (ajusta si usas Gradle)
+    displayName: 'Instalar dependencias de Java'
+
+  # Paso 5: Ejecutar pruebas del frontend (Angular)
+  - script: |
+      cd frontend  # Navegar a la carpeta del frontend
+      npm run test -- --watch=false --browsers=ChromeHeadless  # Ejecutar las pruebas de Angular
+    displayName: 'Ejecutar pruebas del frontend (Angular)'
+
+  # Paso 6: Ejecutar pruebas del backend (Java)
+  - script: |
+      cd backend  # Navegar a la carpeta del backend
+      ./mvnw test  # Ejecutar las pruebas del backend usando Maven (ajusta si usas otro build tool como Gradle)
+    displayName: 'Ejecutar pruebas del backend (Java)'
+
+  # Paso 7: Linting o análisis de calidad de código para el frontend (Angular)
+  - script: |
+      cd frontend  # Navegar a la carpeta del frontend
+      npm run lint  # Ejecutar ESLint u otra herramienta de linting (si tienes configurado uno)
+    displayName: 'Verificar calidad de código en el frontend (Angular)'
+
+  # Paso 8: Linting o análisis de calidad de código para el backend (Java)
+  - script: |
+      cd backend  # Navegar a la carpeta del backend
+      ./mvnw checkstyle:check  # Ejecutar Checkstyle (si lo tienes configurado)
+    displayName: 'Verificar calidad de código en el backend (Java)'
+
