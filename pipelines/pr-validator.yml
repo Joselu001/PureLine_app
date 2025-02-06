@@ -15,7 +15,8 @@ steps:
   # Paso 1: Instalar Java (para el backend)
   - task: JavaToolInstaller@0  # Tarea para instalar Java
     inputs:
-      versionSpec: '1.8'  # Especifica la versión de Java que deseas usar (ajusta si usas otra versión)
+      versionSpec: '17'  # Aquí puedes especificar la versión de Java que deseas (por ejemplo, Java 11)
+      jdkArchitectureOption: 'x64'  # Esto es necesario, ya que defines la arquitectura
 
   # Paso 2: Instalar dependencias de Angular (para el frontend)
   - task: NodeTool@0
