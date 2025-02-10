@@ -37,7 +37,7 @@ steps:
 
   # Paso 4: Instalar dependencias del backend (Java)
   - script: |
-      cd backend  # Si tu proyecto de Java está en la carpeta 'backend', ajusta esto si es necesario
+      cd backend/users-microservices  # Si tu proyecto de Java está en la carpeta 'backend', ajusta esto si es necesario
       ./mvnw install  # Usamos Maven para instalar las dependencias del backend (ajusta si usas Gradle)
     displayName: 'Instalar dependencias de Java'
 
@@ -49,7 +49,7 @@ steps:
 
   # Paso 6: Ejecutar pruebas del backend (Java)
   - script: |
-      cd backend  # Navegar a la carpeta del backend
+      cd backend/users-microservices  # Navegar a la carpeta del backend
       ./mvnw test  # Ejecutar las pruebas del backend usando Maven (ajusta si usas otro build tool como Gradle)
     displayName: 'Ejecutar pruebas del backend (Java)'
 
@@ -61,7 +61,7 @@ steps:
 
   # Paso 8: Linting o análisis de calidad de código para el backend (Java)
   - script: |
-      cd backend  # Navegar a la carpeta del backend
+      cd backend/users-microservices  # Navegar a la carpeta del backend
       ./mvnw checkstyle:check  # Ejecutar Checkstyle (si lo tienes configurado)
     displayName: 'Verificar calidad de código en el backend (Java)'
 
