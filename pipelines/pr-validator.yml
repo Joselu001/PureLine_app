@@ -12,6 +12,12 @@ pool:
   name: 'amazon-pool-dev'  # Usamos Ubuntu como la imagen base para el agente de pipeline
 
 steps:
+
+  - script: |
+      echo "AGENT_TOOLSDIRECTORY: $(Agent.ToolsDirectory)"
+      ls -la $(Agent.ToolsDirectory)/jdk/17
+    displayName: 'Verificar estructura del JDK'
+    
   # Paso 1: Instalar Java (para el backend)
   - task: JavaToolInstaller@0  # Tarea para instalar Java
     inputs:
@@ -24,11 +30,6 @@ steps:
     inputs:
       versionSpec: '14.x'  # Especifica la versión de Node.js que quieres usar
       addToPath: true
-
-  - script: |
-      echo "AGENT_TOOLSDIRECTORY: $(Agent.ToolsDirectory)"
-      ls -la $(Agent.ToolsDirectory)/jdk/17
-    displayName: 'Verificar estructura del JDK'
 
   # Paso 3: Instalar dependencias del frontend (Angular)
   - script: |
