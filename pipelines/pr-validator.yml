@@ -15,7 +15,7 @@ steps:
 
   - script: |
       echo "AGENT_TOOLSDIRECTORY: $(Agent.ToolsDirectory)"
-      ls -la $(Agent.ToolsDirectory)/jdk/17
+      ls -la $(Agent.ToolsDirectory)/jdk/17.0.13
     displayName: 'Verificar estructura del JDK'
     
   # Paso 1: Instalar Java (para el backend)
