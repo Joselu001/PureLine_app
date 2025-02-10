@@ -25,6 +25,11 @@ steps:
       versionSpec: '14.x'  # Especifica la versión de Node.js que quieres usar
       addToPath: true
 
+  - script: |
+      echo "AGENT_TOOLSDIRECTORY: $(Agent.ToolsDirectory)"
+      ls -la $(Agent.ToolsDirectory)/jdk/17
+    displayName: 'Verificar estructura del JDK'
+
   # Paso 3: Instalar dependencias del frontend (Angular)
   - script: |
       cd frontend  # Si tu proyecto de Angular está en la carpeta 'frontend', ajusta esto si es necesario
