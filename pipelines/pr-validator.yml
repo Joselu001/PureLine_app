@@ -21,12 +21,7 @@ steps:
       ls -la $(Agent.ToolsDirectory)/jdk/17.0.13
     displayName: 'Verificar estructura del JDK'
     
-  # Paso 1: Instalar Java (para el backend)
-  - task: JavaToolInstaller@0  # Tarea para instalar Java
-    inputs:
-      jdkSourceOption: 'PreInstalled'
-      versionSpec: '17.0.13'  # Aquí puedes especificar la versión de Java que deseas (por ejemplo, Java 11)
-      jdkArchitectureOption: 'x64'  # Esto es necesario, ya que defines la arquitectura
+
 
   # Paso 2: Instalar dependencias de Angular (para el frontend)
   - task: NodeTool@0
