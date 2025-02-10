@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: 'Default'
+  name: 'amazon-pool-dev'
 
 steps:
 - script: echo Hello, world!
