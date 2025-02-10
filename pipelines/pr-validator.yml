@@ -1,3 +1,6 @@
+variables:
+  system.debug: true
+
 trigger:
   branches:
     exclude:
