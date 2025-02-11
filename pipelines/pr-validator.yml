@@ -51,7 +51,7 @@ steps:
   - script: |
       echo "Ejecutando pruebas del backend con Maven..."
       mvn test
-    workingDirectory: 'Pure-Line-main/backend'
+    workingDirectory: 'Pure-Line-main/backend/users-microservices'
     displayName: "Ejecutar pruebas del backend"
 
   # Paso 7: Finalizar con éxito si todo va bien
