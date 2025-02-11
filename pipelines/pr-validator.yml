@@ -9,7 +9,7 @@ jobs:
 - job: PullRequestValidation
   displayName: 'Validación de Pull Request'
   pool:
-    name: 'Default'  # Asegúrate de que este nombre sea correcto
+    name: 'amazon-pool-dev'  # Asegúrate de que este nombre sea correcto
 
   steps:
 
@@ -25,12 +25,6 @@ jobs:
       displayName: 'Usar Node.js 22'
       inputs:
         versionSpec: '22.x'
-
-    - script: |
-        echo "Instalando dependencias de Angular..."
-        npm install
-      workingDirectory: 'Pure-Line-main/frontend'  # Ajusta si es necesario
-      displayName: 'Instalar dependencias de Angular'
 
     - script: |
         echo "Ejecutando Linter de Angular..."
