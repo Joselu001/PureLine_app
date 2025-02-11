@@ -9,7 +9,7 @@ jobs:
 - job: PullRequestValidation
   displayName: 'Validación de Pull Request'
   pool:
-    name: 'amazon-pool-dev'  # Asegúrate de que este nombre sea correcto
+    name: 'Default'  # Asegúrate de que este nombre sea correcto
 
   steps:
 
