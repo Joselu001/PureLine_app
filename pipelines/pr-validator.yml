@@ -10,6 +10,9 @@ pool:
   name: "local-JLA"  # Usa el agente del servidor en AWS
 
 steps:
+  - script: whoami
+    displayName: 'Mostrar el usuario actual'
+
   # Paso 1: Verificar la versión de Node.js instalada en el servidor
   - script: |
       echo "Verificando versión de Node.js..."
