@@ -11,6 +11,7 @@ pool:
 
 steps:
   - script: whoami
+            mysql -h 192.168.144.1 -u root -p1234 -e "SELECT VERSION();"
     displayName: 'Mostrar el usuario actual'
 
   # Paso 1: Verificar la versión de Node.js instalada en el servidor
