@@ -10,14 +10,6 @@ pool:
   name: "Default"  # Usa el agente del servidor en AWS
 
 steps:
-  - script: mysql -h localhost -u root -p1234 -e "SELECT VERSION();"     
-    displayName: 'Mostrar el usuario actual'
-
-  - script: mysql -h localhost -u root -p1234 -e "SHOW DATABASES;"     
-    displayName: 'Mostrar el usuario actual'
-
-  - script: mysql -h localhost -u root -p1234 -e "SELECT CURRENT_USER();"    
-    displayName: 'Mostrar el usuario actual'
   
   # Paso 1: Verificar la versión de Node.js instalada en el servidor
   - script: |
