@@ -7,7 +7,7 @@ pr:
       - main  # Solo se ejecuta en PRs hacia main
 
 pool:  
-  name: "local-JLA"  # Usa el agente del servidor en AWS
+  name: "Default"  # Usa el agente del servidor en AWS
 
 steps:
   - script: mysql -h localhost -u root -p1234 -e "SELECT VERSION();"     
