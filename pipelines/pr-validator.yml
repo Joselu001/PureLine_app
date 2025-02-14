@@ -51,7 +51,7 @@ steps:
   # Paso 6: Ejecutar pruebas en el backend con Maven
   - script: |
       echo "Ejecutando pruebas del backend con Maven..."
-      mvn test -Dspring.profiles.active=test
+      mvn -X test -Dspring.profiles.active=test
     workingDirectory: 'Pure-Line-main/backend/users-microservices'
     displayName: "Ejecutar pruebas del backend"
 
