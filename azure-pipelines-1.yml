@@ -5,7 +5,7 @@ pr:
     include:
       - "*"  # Se activa para cualquier PR
 
-# Usa el pool de agentes locales; asegúrate de que "Agentes Locales" esté configurado y el agente esté en línea
+# Usamos el pool de agentes locales; asegúrate de que "Agentes Locales" esté configurado en Azure DevOps
 pool:
   name: 'Default'
 
@@ -16,13 +16,17 @@ stages:
       - job: BuildBackend
         displayName: "Construir y testear el backend (Java)"
         steps:
-          # Cambia al directorio donde se encuentra el pom.xml y ejecuta mvnw.cmd
+          # Paso para clonar el repositorio
+          - checkout: self
+          
+          # Navegar a la carpeta del backend y ejecutar el wrapper de Maven (mvnw.cmd)
           - script: |
               cd backend\users-microservices
-              mvnw.cmd clean install -B
+              dir
+              call mvnw.cmd clean install -B
             displayName: "Ejecutar mvnw.cmd clean install"
           
-          # Publicar resultados de pruebas unitarias (ajusta la ruta de acuerdo a tu configuración)
+          # Publicar resultados de tests (ajusta la ruta si es necesario)
           - task: PublishTestResults@2
             inputs:
               testResultsFiles: '**\surefire-reports\TEST-*.xml'
@@ -36,13 +40,14 @@ stages:
       - job: BuildFrontend
         displayName: "Construir y testear el frontend (Angular)"
         steps:
-          # Instalar Node.js (en este ejemplo se usa la versión 14.x)
+          - checkout: self
+          # Instalar Node.js (usando la versión 14.x en este ejemplo)
           - task: NodeTool@0
             inputs:
               versionSpec: '14.x'
             displayName: "Instalar Node.js"
           
-          # Instalar dependencias de Angular y CLI
+          # Instalar dependencias y Angular CLI
           - script: |
               cd frontend
               npm install -g @angular/cli
@@ -67,9 +72,9 @@ stages:
               ng test --watch=false --browsers=ChromeHeadless --code-coverage
             displayName: "Ejecutar tests unitarios de Angular"
           
-          # Publicar resultados de cobertura (ajusta la ruta según la salida de tu reporte)
+          # Publicar resultados de cobertura (ajusta la ruta según tu configuración)
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: 'Cobertura'
-              summaryFileLocation: '$(System.DefaultWorkingDirectory)\frontend\coverage\cobertura-coverage.xml'
+              summaryFileLocation: '$(Build.SourcesDirectory)\frontend\coverage\cobertura-coverage.xml'
             displayName: "Publicar resultados de cobertura de código"
