@@ -1,49 +1,78 @@
+# Esta pipeline se ejecuta en pull requests
 trigger: none
 
 pr:
   branches:
     include:
-      - "*"
+      - "*"  # Se activa para cualquier PR
 
+# Usa el pool de agentes locales (asegúrate de que el pool "Agentes Locales" esté configurado en tu proyecto)
 pool:
-  name: 'Default'  # Nombre del pool que creaste para tus agentes locales
+  name: 'Default'
 
 stages:
-  - stage: BuildAndTestBackend
-    displayName: "Construcción y pruebas del Backend"
+  - stage: BackendBuildTest
+    displayName: "Construir y testear el Backend"
     jobs:
       - job: BuildBackend
+        displayName: "Construir y testear el backend (Java)"
         steps:
-          - script: mvn clean install -B
-            displayName: "Compilar y ejecutar tests del backend"
+          # Cambia al directorio donde se encuentra el pom.xml y ejecuta el wrapper de Maven
+          - script: |
+              cd backend/users-microservices
+              # En Linux/Mac aseguramos permisos de ejecución; en Windows puedes omitir esta línea y usar mvnw.cmd
+              chmod +x mvnw
+              ./mvnw clean install -B
+            displayName: "Ejecutar mvnw clean install"
+          
+          # Publicar los resultados de los tests unitarios (suponiendo que se generan en surefire-reports)
           - task: PublishTestResults@2
             inputs:
               testResultsFiles: '**/surefire-reports/TEST-*.xml'
               mergeTestResults: true
-              testRunTitle: 'Resultados de pruebas del Backend'
+              testRunTitle: "Resultados de pruebas del Backend"
             displayName: "Publicar resultados de tests del backend"
 
-  - stage: BuildAndTestFrontend
-    displayName: "Construcción y pruebas del Frontend"
+  - stage: FrontendBuildTest
+    displayName: "Construir y testear el Frontend"
     jobs:
       - job: BuildFrontend
+        displayName: "Construir y testear el frontend (Angular)"
         steps:
+          # Instalar Node.js (en este ejemplo se usa la versión 14.x)
           - task: NodeTool@0
             inputs:
               versionSpec: '14.x'
             displayName: "Instalar Node.js"
+          
+          # Instalar dependencias de Angular y CLI
           - script: |
+              cd frontend
               npm install -g @angular/cli
               npm install
             displayName: "Instalar dependencias del frontend"
-          - script: ng lint
-            displayName: "Ejecutar Linting en Angular"
-          - script: ng build --prod
+          
+          # Ejecutar linting
+          - script: |
+              cd frontend
+              ng lint
+            displayName: "Ejecutar linting en Angular"
+          
+          # Compilar la aplicación Angular
+          - script: |
+              cd frontend
+              ng build --prod
             displayName: "Construir la aplicación Angular"
-          - script: ng test --watch=false --browsers=ChromeHeadless --code-coverage
+          
+          # Ejecutar tests unitarios con cobertura
+          - script: |
+              cd frontend
+              ng test --watch=false --browsers=ChromeHeadless --code-coverage
             displayName: "Ejecutar tests unitarios de Angular"
+          
+          # Publicar resultados de cobertura (ajusta la ruta del reporte según tu configuración)
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: 'Cobertura'
-              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/frontend/coverage/cobertura-coverage.xml'
             displayName: "Publicar resultados de cobertura de código"
