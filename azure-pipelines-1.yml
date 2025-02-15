@@ -5,6 +5,8 @@ pr:
   branches:
     include:
       - "*"  # Se activa para cualquier PR
+pool:  
+  name: "Default"  # Usa el agente del servidor en AWS
 
 stages:
   - stage: BuildAndTestBackend
