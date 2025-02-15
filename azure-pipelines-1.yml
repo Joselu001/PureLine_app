@@ -1,4 +1,3 @@
-# Esta pipeline se ejecuta en pull requests
 trigger: none
 
 pr:
@@ -6,7 +5,7 @@ pr:
     include:
       - "*"  # Se activa para cualquier PR
 
-# Usa el pool de agentes locales (asegúrate de que el pool "Agentes Locales" esté configurado en tu proyecto)
+# Usa el pool de agentes locales; asegúrate de que "Agentes Locales" esté configurado y el agente esté en línea
 pool:
   name: 'Default'
 
@@ -17,18 +16,16 @@ stages:
       - job: BuildBackend
         displayName: "Construir y testear el backend (Java)"
         steps:
-          # Cambia al directorio donde se encuentra el pom.xml y ejecuta el wrapper de Maven
+          # Cambia al directorio donde se encuentra el pom.xml y ejecuta mvnw.cmd
           - script: |
-              cd backend/users-microservices
-              # En Linux/Mac aseguramos permisos de ejecución; en Windows puedes omitir esta línea y usar mvnw.cmd
-              chmod +x mvnw
-              ./mvnw clean install -B
-            displayName: "Ejecutar mvnw clean install"
+              cd backend\users-microservices
+              mvnw.cmd clean install -B
+            displayName: "Ejecutar mvnw.cmd clean install"
           
-          # Publicar los resultados de los tests unitarios (suponiendo que se generan en surefire-reports)
+          # Publicar resultados de pruebas unitarias (ajusta la ruta de acuerdo a tu configuración)
           - task: PublishTestResults@2
             inputs:
-              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              testResultsFiles: '**\surefire-reports\TEST-*.xml'
               mergeTestResults: true
               testRunTitle: "Resultados de pruebas del Backend"
             displayName: "Publicar resultados de tests del backend"
@@ -52,13 +49,13 @@ stages:
               npm install
             displayName: "Instalar dependencias del frontend"
           
-          # Ejecutar linting
+          # Ejecutar linting en Angular
           - script: |
               cd frontend
               ng lint
             displayName: "Ejecutar linting en Angular"
           
-          # Compilar la aplicación Angular
+          # Construir la aplicación Angular
           - script: |
               cd frontend
               ng build --prod
@@ -70,9 +67,9 @@ stages:
               ng test --watch=false --browsers=ChromeHeadless --code-coverage
             displayName: "Ejecutar tests unitarios de Angular"
           
-          # Publicar resultados de cobertura (ajusta la ruta del reporte según tu configuración)
+          # Publicar resultados de cobertura (ajusta la ruta según la salida de tu reporte)
           - task: PublishCodeCoverageResults@1
             inputs:
               codeCoverageTool: 'Cobertura'
-              summaryFileLocation: '$(System.DefaultWorkingDirectory)/frontend/coverage/cobertura-coverage.xml'
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)\frontend\coverage\cobertura-coverage.xml'
             displayName: "Publicar resultados de cobertura de código"
