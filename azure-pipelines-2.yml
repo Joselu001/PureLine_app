@@ -2,10 +2,10 @@ jobs:
 - job: IntegrationTests
   pool:
     agent: Default
-    vmImage: 'ubuntu-latest'
     name: Default
-  container: 
-    image: maven:3.8.7-openjdk-21
+    vmImage: 'ubuntu-latest'
+  container:
+    image: joselu001/keen_margulis:latest
   services:
     mysql:
       image: mysql:latest
