@@ -1,9 +1,9 @@
 jobs:
 - job: IntegrationTests
   pool:
-    agent: local-JLA
+    agent: Default
     vmImage: 'ubuntu-latest'
-    name: local-JLA
+    name: Default
   container: 
     image: maven:3.8.7-openjdk-21
   services:
