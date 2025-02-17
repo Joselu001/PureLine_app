@@ -1,26 +1,25 @@
-version: '3.8'
-services:
-  mysql:
-    image: mysql:latest
-    container_name: pl-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: "1234"
-      MYSQL_DATABASE: "tienda_db"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: "1234"
-    ports:
-      - "3310:3306"
-  app-test:
-    image: tu-imagen-de-tests  # O puedes usar un contenedor basado en Maven/Java
-    depends_on:
-      - mysql
-    environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/tienda_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
-      SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_DATASOURCE_PASSWORD: "1234"
-    networks:
-      - mi_red
-
-  networks:
-    mi_red:
-      driver: bridge
+jobs:
+- job: IntegrationTests
+  pool:
+    vmImage: 'ubuntu-latest'
+  container: 
+    image: maven:3.8.7-openjdk-21
+  services:
+    mysql:
+      image: mysql:latest
+      env:
+        MYSQL_ROOT_PASSWORD: "1234"
+        MYSQL_DATABASE: "tienda_db"
+        MYSQL_USER: "root"
+        MYSQL_PASSWORD: "1234"
+      ports:
+      - 3306:3306
+  steps:
+  - script: |
+      echo "Esperando a que MySQL esté listo..."
+      until nc -z localhost 3306; do echo "Waiting..."; sleep 2; done
+    displayName: "Esperar a que MySQL esté listo"
+  - script: |
+      mvn clean test -Dspring.profiles.active=test
+    workingDirectory: 'Pure-Line-main/backend/users-microservices'
+    displayName: "Ejecutar pruebas del backend"
