@@ -8,6 +8,8 @@ pr:
 
 pool:  
   name: "Default"  # Usa el agente del servidor en AWS
+  container: openjdk:21
+
 
 steps:
   
