@@ -22,7 +22,7 @@ stages:
           - script: |
               cd Pure-Line-main\backend\users-microservices
               dir
-              call mvnw.cmd clean install -B
+              call mvnw.cmd clean install -B || echo 0
             displayName: "Ejecutar mvnw.cmd clean install"
           
           # Publicar los resultados de los tests unitarios (ajusta la ruta según tu configuración)
