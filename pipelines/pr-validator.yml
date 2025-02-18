@@ -18,6 +18,7 @@ steps:
       echo "Verificando versión de Node.js..."
       node -v
       npm -v
+      whoami
     displayName: "Verificar Node.js instalado en servidor"
 
   # Paso 2: Verificar versión de Java en el servidor
