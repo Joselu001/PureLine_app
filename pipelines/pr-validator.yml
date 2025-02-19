@@ -19,6 +19,7 @@ steps:
       node -v
       npm -v
       whoami
+      telnet 127.0.0.1 3306
     displayName: "Verificar Node.js instalado en servidor"
 
   # Paso 2: Verificar versión de Java en el servidor
