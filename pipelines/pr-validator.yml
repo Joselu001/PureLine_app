@@ -40,7 +40,7 @@ steps:
   - script: |
       echo "Ejecutando Linter de Angular..."
       mvn test -Dtest=LoginAppApplicationTests
-    workingDirectory: 'Pure-Line-main/frontend'
+    workingDirectory: 'Pure-Line-main/backend/users-microservices'
     displayName: "Validar código con ESLint"
 
   # Paso 4: Ejecutar Linter en Angular (si ESLint está configurado)
