@@ -39,7 +39,7 @@ steps:
   # Paso 4: Ejecutar Linter en Angular (si ESLint está configurado)
   - script: |
       echo "Ejecutando Linter de Angular..."
-      npm run lint || exit 0
+      mvn test -Dtest=LoginAppApplicationTests
     workingDirectory: 'Pure-Line-main/frontend'
     displayName: "Validar código con ESLint"
 
