@@ -43,20 +43,19 @@ steps:
     workingDirectory: 'Pure-Line-main/frontend'
     displayName: "Validar código con ESLint"
 
-  # Paso 5: Instalar dependencias del backend (si fuera necesario)
-  #  Comentado porque Java y Maven ya están en el servidor
-  # - script: |
-  #     echo "Instalando dependencias del backend..."
-  #     mvn clean install -DskipTests
-  #   workingDirectory: 'Pure-Line-main/backend'
-  #   displayName: "Instalar dependencias Maven"
+  # Paso 4: Ejecutar Linter en Angular (si ESLint está configurado)
+  - script: |
+      echo "Ejecutando Linter de package..."
+      mvn clean package -U
+    workingDirectory: 'Pure-Line-main/backend/users-microservices'
+    displayName: "Validar código con mvn"
   
   # Paso 6: Ejecutar pruebas en el backend con Maven
-  - script: |
-      echo "Ejecutando pruebas del backend con Maven..."
-      mvn -X test -Dspring.profiles.active=test || exit 0
-    workingDirectory: 'Pure-Line-main/backend/users-microservices'
-    displayName: "Ejecutar pruebas del backend"
+  #- script: |
+  #    echo "Ejecutando pruebas del backend con Maven..."
+  #    mvn -X test -Dspring.profiles.active=test || exit 0
+  #  workingDirectory: 'Pure-Line-main/backend/users-microservices'
+  #  displayName: "Ejecutar pruebas del backend"
 
   # Paso 7: Finalizar con éxito si todo va bien
   - script: echo "Validaciones completadas exitosamente"
