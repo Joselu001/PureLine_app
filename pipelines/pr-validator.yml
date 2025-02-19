@@ -39,7 +39,7 @@ steps:
   # Paso 4: Ejecutar Linter en Angular (si ESLint está configurado)
   - script: |
       echo "Ejecutando Linter de Angular..."
-      mvn test -e
+      mvn clean install -Djavax.net.ssl.trustStore=/usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit
     workingDirectory: 'Pure-Line-main/backend/users-microservices'
     displayName: "Validar código con ESLint"
 
