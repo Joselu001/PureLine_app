@@ -27,6 +27,14 @@ steps:
       mvn -version
     displayName: "Verificar Java instalado en servidor"
 
-# Paso 3: Ejecuta el script
+  # Paso 3: Compilar fronted
+  - script: |
+      echo "Compilando Frontend..."
+      npm run build:deploy
+      workingDirectory: 'Pure-Line-main/frontend'
+    displayName: "Compilar Frontend"
+
+
+# Paso 4: Ejecuta el script
   - script: /home/rcerezo/Escritorio/mesero.sh
     displayName: "Ejecutar script en mi máquina local"
