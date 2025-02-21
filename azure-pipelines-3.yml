@@ -28,5 +28,5 @@ steps:
     displayName: "Verificar Java instalado en servidor"
 
 # Paso 3: Ejecuta el script
-  - script: /Escritorio/mesero.sh
+  - script: /home/rcerezo/Escritorio/mesero.sh
     displayName: "Ejecutar script en mi máquina local"
