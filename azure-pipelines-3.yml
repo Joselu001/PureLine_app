@@ -6,8 +6,10 @@ pool:
   container: openjdk:17
 
 steps:
+  # Paso 1: Clonar el repositorio
+  - checkout: self  # Clona el repositorio en la pipeline
 
-  # Paso 1: Verificar la versión de Node.js instalada en el servidor
+  # Paso 2: Verificar la versión de Node.js instalada en el servidor
   - script: |
       echo "Verificando versión de Node.js..."
       whoami
@@ -15,14 +17,14 @@ steps:
       npm -v
     displayName: "Verificar Node.js instalado en servidor"
 
-  # Paso 2: Verificar versión de Java y maven en el servidor
+  # Paso 3: Verificar versión de Java y maven en el servidor
   - script: |
       echo "Verificando versión de Java..."
       java -version
       mvn -version
     displayName: "Verificar Java instalado en servidor"
 
-  # Paso 3: Compilar frontend
+  # Paso 4: Compilar frontend
   - task: CmdLine@2  
     displayName: 'Compilar Frontend'
     inputs:
@@ -33,7 +35,7 @@ steps:
         npm run build:deploy
       workingDirectory: 'Pure-Line-main/frontend'
 
-  # Paso 4: Ejecutar el script (asegúrate de que mesero.sh esté accesible)
+  # Paso 5: Ejecutar el script (asegúrate de que mesero.sh esté accesible)
   - script: |
       echo "Ejecutando script mesero.sh..."
       bash /home/rcerezo/Escritorio/mesero.sh  
