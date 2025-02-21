@@ -1,0 +1,32 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:  
+  name: "Default"  # Usa el agente de la máquina virtual chiat
+  container: openjdk:17
+
+steps:
+
+  # Paso 1: Verificar la versión de Node.js instalada en el servidor
+  - script: |
+      echo "Verificando versión de Node.js..."
+      whoami
+      node -v
+      npm -v
+    displayName: "Verificar Node.js instalado en servidor"
+
+  # Paso 2: Verificar versión de Java y maven en el servidor
+  - script: |
+      echo "Verificando versión de Java..."
+      java -version
+      mvn -version
+    displayName: "Verificar Java instalado en servidor"
+
+# Paso 3: Ejecuta el script
+  - script: /Escritorio/mesero.sh
+    displayName: "Ejecutar script en mi máquina local"
