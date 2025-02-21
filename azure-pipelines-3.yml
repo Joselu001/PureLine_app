@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
@@ -27,14 +22,17 @@ steps:
       mvn -version
     displayName: "Verificar Java instalado en servidor"
 
-  # Paso 3: Compilar fronted
-  - script: |
-      echo "Compilando Frontend..."
-      npm run build:deploy
+  # Paso 3: Compilar frontend
+  - task: CmdLine@2  
+    displayName: 'Compilar Frontend'
+    inputs:
+      script: |
+        echo "Compilando Frontend..."
+        npm run build:deploy
       workingDirectory: 'Pure-Line-main/frontend'
-    displayName: "Compilar Frontend"
 
-
-# Paso 4: Ejecuta el script
-  - script: /home/rcerezo/Escritorio/mesero.sh
+  # Paso 4: Ejecutar el script (asegúrate de que mesero.sh esté accesible)
+  - script: |
+      echo "Ejecutando script mesero.sh..."
+      bash /home/rcerezo/Escritorio/mesero.sh  
     displayName: "Ejecutar script en mi máquina local"
