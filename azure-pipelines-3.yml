@@ -27,6 +27,8 @@ steps:
     displayName: 'Compilar Frontend'
     inputs:
       script: |
+        echo "Descargando Modulos"
+        npm install
         echo "Compilando Frontend..."
         npm run build:deploy
       workingDirectory: 'Pure-Line-main/frontend'
